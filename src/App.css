@@ -1,1 +1,22 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.map-container {
+  height: 100vh;
+  position: relative;
+  z-index: 0;
+}
 
+.searchInterface {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 5vh;
+}
+
+.searchInterface label {
+  margin-right: 1vh;
+}

@@ -1,44 +1,50 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
+import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
+// import "mapbox-gl/dist/mapbox-gl.css";
 
 function App() {
-  const Map = ReactMapboxGl({
-    accessToken:
-      "pk.eyJ1Ijoic2t3aWVydSIsImEiOiJja3hnZjd4aHUxcno4Mm9wZGpqdHozaGllIn0.h8jnpRMJ1lcOJH1gHlmOeg",
-  });
+  // Getting mapbox token
+  mapboxgl.accessToken =
+    "pk.eyJ1Ijoic2t3aWVydSIsImEiOiJja3hnZjd4aHUxcno4Mm9wZGpqdHozaGllIn0.h8jnpRMJ1lcOJH1gHlmOeg";
 
-  const [cityName, setCityName] = useState(" ");
+  // bacis map settings
+  const mapContainer = useRef(null);
+  const map = useRef(null);
+  const [lng, setLng] = useState(-70.9);
+  const [lat, setLat] = useState(42.35);
+  const [zoom, setZoom] = useState(9);
+
+  // input value
+  const [cityName, setCityName] = useState("");
 
   const handleInput = (e) => {
-    console.log(cityName);
     setCityName(e.target.value);
+    // console.log(cityName);
   };
+  // creating map layout
+  useEffect(() => {
+    if (map.current) return; // initialize map only once
+    map.current = new mapboxgl.Map({
+      container: mapContainer.current,
+      style: "mapbox://styles/mapbox/streets-v11",
+      center: [lng, lat],
+      zoom: zoom,
+    });
+  });
 
-  const fetchWeather = async () => {
-    //   if (input.value === "") return;
-    //   const cityName = input.value;
-  };
+  const fetchData = async () => {};
   return (
     <>
-      <form action="">
-        <label>Write a city name</label>
-        <input type="text" value={cityName} onChange={handleInput} />
-      </form>
-      <Map
-        style="mapbox://styles/mapbox/streets-v11"
-        containerStyle={{
-          height: "80vh",
-          width: "80vw",
-          margin: "0 auto",
-        }}
-      >
-        <Layer type="symbol" id="marker" layout={{ "icon-image": "marker-15" }}>
-          <Feature coordinates={[-0.481747846041145, 51.3233379650232]} />
-        </Layer>
-      </Map>
-      ;
+      <div>
+        <div ref={mapContainer} className="map-container">
+          <form className="searchInterface">
+            <label>Write a city name{cityName}</label>
+            <input type="text" value={cityName} onChange={handleInput} />
+          </form>
+        </div>
+      </div>
     </>
   );
 }
