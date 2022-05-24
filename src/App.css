@@ -20,3 +20,9 @@
 .searchInterface label {
   margin-right: 1vh;
 }
+.description {
+  position: relative;
+  z-index: 1;
+  background-color: brown;
+  text-align: center;
+}
