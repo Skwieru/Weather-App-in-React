@@ -1,0 +1,35 @@
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: #189ad3; */
+  text-align: justify;
+  padding: 1rem;
+  /* opacity: 0.9; */
+}
+
+.description p {
+  font-size: 2.4rem;
+  color: rgb(255, 255, 255);
+}
+
+.description .icon {
+  font-size: 5rem;
+}
+
+.description .city {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px black;
+  letter-spacing: 2px;
+}
+.description .weatherDescription {
+  font-size: 3rem;
+}
+
+.description .temperature {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  justify-content: space-between;
+}
