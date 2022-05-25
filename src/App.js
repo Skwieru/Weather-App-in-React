@@ -3,7 +3,6 @@ import { useEffect, useState, useRef } from "react";
 import ReactMapboxGl, { Layer, Feature } from "react-mapbox-gl";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 import InfoProvider from "./components/Description/InfoProvider";
-// import "mapbox-gl/dist/mapbox-gl.css";
 
 function App() {
   // Getting mapbox/openweather tokens
@@ -29,6 +28,7 @@ function App() {
     setCityName(e.target.value);
     // console.log(cityName);
   };
+
   // creating map layout
   useEffect(() => {
     if (map.current) return; // initialize map only once
@@ -55,7 +55,7 @@ function App() {
     console.log(data.coord.lat);
     console.log(map);
     map.current.flyTo({
-      center: [lng, lat],
+      center: [data.coord.lon, data.coord.lat],
       zoom: 9,
       speed: 2,
       curve: 1,
@@ -72,12 +72,6 @@ function App() {
             <input type="text" value={cityName} onChange={handleInput} />
           </form>
           <InfoProvider city={city} weatherDesc={weatherDesc} />
-          <div className="description">
-            <p>current city: {city}</p>
-            <p>weather is: {weatherDesc}</p>
-            <p>lng {lng}</p>
-            <p>lat {lat}</p>
-          </div>
         </div>
       </div>
     </>
