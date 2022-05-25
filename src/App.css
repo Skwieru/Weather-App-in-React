@@ -6,39 +6,36 @@
 
 html {
   font-size: 10px;
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+.wrapper {
+  background-color: #189ad3;
 }
 .map-container {
-  height: 100vh;
+  height: 80vh;
   position: relative;
-  z-index: 0;
+  z-index: 2;
 }
 
 .searchInterface {
-  /* min-height: 20vh; */
-  position: relative;
-  z-index: 1;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: aliceblue;
-  padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.searchInterface label {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  justify-content: center;
+  padding: 0.5rem 1rem;
 }
 
 .searchInterface input {
   padding: 0.4rem 0.8rem;
   border-radius: 1rem;
-  border: 2px solid white;
+  color: white;
+  box-shadow: 0 0px 1px 1px #b8e734;
+  background-color: rgba(27, 238, 122, 0.5);
+}
+
+.searchInterface input::placeholder {
+  color: white;
+  opacity: 0.75;
 }
 .description {
-  position: relative;
-  z-index: 1;
-  background-color: brown;
   text-align: center;
 }

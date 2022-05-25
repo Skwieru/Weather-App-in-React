@@ -17,16 +17,20 @@ function App() {
   const [lat, setLat] = useState(20);
   const [zoom, setZoom] = useState(1);
 
+  // other parameters
+  const [isVisible, setIsVisible] = useState(false);
+
   // openweather parameters
-  const [deg, setDeg] = useState(0);
+  const [temp, setTemp] = useState(0);
   const [weatherDesc, setWeatherDesc] = useState("");
+  const [city, setCity] = useState("");
+  const [icon, setIcon] = useState("");
 
   // input value
-  const [city, setCity] = useState("");
+
   const [cityName, setCityName] = useState("");
   const handleInput = (e) => {
     setCityName(e.target.value);
-    // console.log(cityName);
   };
 
   // creating map layout
@@ -43,17 +47,17 @@ function App() {
   // fetching data function
   const fetchData = async (e) => {
     e.preventDefault();
-    const addres = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`;
+    const addres = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`;
     const response = await fetch(addres);
     const data = await response.json();
     console.log(data);
-    setCity(cityName);
+    setIsVisible(true);
+    setCity(data.name);
+    setTemp(data.main.temp);
     setWeatherDesc(data.weather[0].description);
+    setIcon(data.weather[0].icon);
     setLng(data.coord.lon);
     setLat(data.coord.lat);
-    console.log(data.coord.lon);
-    console.log(data.coord.lat);
-    console.log(map);
     map.current.flyTo({
       center: [data.coord.lon, data.coord.lat],
       zoom: 9,
@@ -65,14 +69,24 @@ function App() {
   // fetchData();
   return (
     <>
-      <div>
-        <div ref={mapContainer} className="map-container">
-          <form className="searchInterface" onSubmit={fetchData}>
-            <label>Write a city name</label>
-            <input type="text" value={cityName} onChange={handleInput} />
-          </form>
-          <InfoProvider city={city} weatherDesc={weatherDesc} />
-        </div>
+      <div className="wrapper">
+        <form className="searchInterface" onSubmit={fetchData}>
+          <input
+            type="text"
+            value={cityName}
+            onChange={handleInput}
+            placeholder="search for a city"
+          />
+        </form>
+        {isVisible && (
+          <InfoProvider
+            city={city}
+            weatherDesc={weatherDesc}
+            temp={temp}
+            icon={icon}
+          />
+        )}
+        <div ref={mapContainer} className="map-container"></div>
       </div>
     </>
   );
