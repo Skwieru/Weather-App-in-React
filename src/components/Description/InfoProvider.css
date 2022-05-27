@@ -1,35 +1,63 @@
 .description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: #189ad3; */
+  align-content: flex-start;
+  width: 100%;
   text-align: justify;
-  padding: 1rem;
-  /* opacity: 0.9; */
-}
-
-.description p {
-  font-size: 2.4rem;
+  padding: 5vh 0;
+  background-color: rgba(0, 0, 0, 0.5);
   color: rgb(255, 255, 255);
-}
-
-.description .icon {
-  font-size: 5rem;
+  z-index: 1;
 }
 
 .description .city {
-  font-size: 3rem;
+  font-size: 3.6rem;
   font-weight: bold;
+  text-align: center;
   text-shadow: 2px 2px 4px black;
   letter-spacing: 2px;
 }
 .description .weatherDescription {
-  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  font-size: 2.4rem;
 }
 
 .description .temperature {
   display: flex;
   align-items: center;
-  width: 50%;
   justify-content: space-between;
+
+  margin: 1rem 0;
+  font-size: 5.4rem;
+  font-weight: bold;
+}
+
+@media screen and (orientation: landscape) {
+  html {
+    font-size: 8px;
+  }
+  .description {
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+    padding: 2rem 0;
+  }
+}
+
+@media screen and (min-width: 1024px) and (min-height: 768px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) and (min-height: 1024px) {
+  html {
+    font-size: 20px;
+  }
 }

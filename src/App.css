@@ -9,27 +9,34 @@ html {
   font-family: "Merriweather Sans", sans-serif;
 }
 
-.wrapper {
-  background-color: #189ad3;
-}
 .map-container {
-  height: 80vh;
-  position: relative;
-  z-index: 2;
+  height: 100vh;
+  max-height: 820px;
+  max-width: 1180px;
 }
 
 .searchInterface {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  height: 10vh;
+  z-index: 5;
   display: flex;
   justify-content: center;
+  z-index: 2;
   padding: 0.5rem 1rem;
 }
 
 .searchInterface input {
   padding: 0.4rem 0.8rem;
   border-radius: 1rem;
+  width: 80%;
   color: white;
-  box-shadow: 0 0px 1px 1px #b8e734;
-  background-color: rgba(27, 238, 122, 0.5);
+  font-size: 2rem;
+  text-align: center;
+  border: 1px solid black;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .searchInterface input::placeholder {
@@ -38,4 +45,13 @@ html {
 }
 .description {
   text-align: center;
+}
+
+@media screen and (orientation: landscape) {
+  .searchInterface {
+    height: 15vh;
+  }
+  .searchInterface input {
+    width: 60%;
+  }
 }
