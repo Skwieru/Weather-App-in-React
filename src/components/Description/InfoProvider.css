@@ -32,7 +32,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  text-shadow: 2px 2px 4px black;
   margin: 1rem 0;
   font-size: 5.4rem;
   font-weight: bold;

@@ -11,8 +11,6 @@ html {
 
 .map-container {
   height: 100vh;
-  max-height: 820px;
-  max-width: 1180px;
 }
 
 .searchInterface {

@@ -73,6 +73,7 @@ function App() {
         <form className="searchInterface" onSubmit={fetchData}>
           <input
             type="text"
+            pattern="[a-zA-Z]*"
             value={cityName}
             onChange={handleInput}
             placeholder="search for a city"
