@@ -6,5 +6,6 @@
 
 ### Short description:
 
-Basic weather APP created in React with using of <cite>"https://openweathermap.org/api</cite>
-". Type city name in input. App will search for it, 
+Basic weather APP created in React with using of <cite>"https://openweathermap.org/api"</cite>
+and <cite>"https://docs.mapbox.com/"</cite>.
+Type city name in input. App will search for it, display information about weather and move map into this city.
