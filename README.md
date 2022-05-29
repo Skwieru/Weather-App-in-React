@@ -1,6 +1,6 @@
 # Weather-APP
 
-!["weather APP Image"](https://github.com/Skwieru/weather-api/blob/master/weatherImage.png?raw=true))
+!["weather APP Image"](https://github.com/Skwieru/weather-api/blob/master/weatherImage.png?raw=true)
 
 ## Technologies: React, Javascript, CSS, HTML
 
